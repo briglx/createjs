@@ -1,4 +1,6 @@
 canvas {
     width: 100%;
     background-color: #fff;
+    height: 500px;
+    border: 1px solid green;
 }

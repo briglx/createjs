@@ -11,9 +11,9 @@ function handleTick(event) {
 
         var badguy = new createjs.Bitmap("images/badguy2.png");
         badguy.wait = getRandomInt(10,20);
-        badguy.wait = 0;
+        //badguy.wait = 0;
         badguy.vector = {x: getRandomInt(-10,10), y: getRandomInt(0,2)};
-        badguy.vector = {x: 0, y: 1};
+        //badguy.vector = {x: 0, y: 1};
         badguy.x = getRandomInt(0,200);
         badguy.scaleX = 0.07;
         badguy.scaleY = 0.07;
@@ -33,28 +33,34 @@ function handleTick(event) {
 
         if(bg.wait && bg.wait > 0){
             bg.x += bg.vector.x;    
+
             bg.wait--;
         }
         else {
             // Get new vector
             bg.wait = getRandomInt(5,10);
             bg.vector = {x: getRandomInt(-10,10), y: getRandomInt(0,2)};
-            bg.vector = {x: 0, y: 1};
+            //bg.vector = {x: 0, y: 1};
         }
         
         bg.y += bg.vector.y;
 
-        if(bg.y > 200){
+        if(bg.y > 140){
+            console.log("FAIL");
             remove.push(n);
         }
 
         bg.scaleX = bg.scaleX * (1 + bg.y / 10000);
-        console.log(bg.scaleX * (1 + bg.y / 10000));
+        //console.log(bg.scaleX * (1 + bg.y / 10000));
         bg.scaleY = bg.scaleX 
+
+       
            
     }
 
     for(var n=0; n<remove.length; n++){
+        
+        stage.removeChild(badguys[n]);
         badguys.splice(n, 1);
     }
 
